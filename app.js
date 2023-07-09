@@ -9,23 +9,30 @@ downloadVideoBtn.addEventListener("click", () => {
     alert("Please enter a correct URL!");
   } else {
     console.log(`URL: ${urlInput.value}`);
-    sendURL(urlInput.value);
+    downloadVideo(urlInput.value);
   }
 });
 
-let sendURL = (URL) => {
+let downloadVideo = (URL) => {
   fetch(`https://ahmedsallam100.github.io/Video-Download/index.html?URL=${URL}`)
     .then((response) => {
       if (response.ok) {
-        // تم الحصول على البيانات بنجاح، يمكن القيام بالإجراء المناسب
-        console.log("تم الحصول على البيانات بنجاح!");
+        return response.blob();
       } else {
-        // حدث خطأ أثناء الحصول على البيانات
-        console.log("حدث خطأ أثناء الحصول على البيانات!");
+        console.log("حدث خطأ أثناء تنزيل الفيديو!");
       }
     })
+    .then((blob) => {
+      var a = document.createElement("a");
+      document.body.appendChild(a);
+      a.style = "display: none";
+      var url = window.URL.createObjectURL(blob);
+      a.href = url;
+      a.download = "video.mp4";
+      a.click();
+      window.URL.revokeObjectURL(url);
+    })
     .catch((error) => {
-      // حدث خطأ أثناء الاتصال بالخادم
       console.log(`حدث خطأ أثناء الاتصال بالخادم: ${error}`);
     });
 };
