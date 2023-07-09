@@ -4,8 +4,7 @@ let downloadthumBtn = document.querySelector(".download-thumbnail");
 let imgs = document.querySelectorAll(".img-container img");
 let output = document.querySelector(".img-cont");
 
-downloadVideoBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+downloadVideoBtn.addEventListener("click", () => {
   if (urlInput.value === "") {
     alert("Please enter a correct URL!");
   } else {
@@ -15,7 +14,20 @@ downloadVideoBtn.addEventListener("click", (e) => {
 });
 
 let sendURL = (URL) => {
-  window.location.href = `https://ahmedsallam100.github.io/Video-Download/index.html?URL=${URL}`;
+  fetch(`https://ahmedsallam100.github.io/Video-Download/index.html?URL=${URL}`)
+    .then((response) => {
+      if (response.ok) {
+        // تم الحصول على البيانات بنجاح، يمكن القيام بالإجراء المناسب
+        console.log("تم الحصول على البيانات بنجاح!");
+      } else {
+        // حدث خطأ أثناء الحصول على البيانات
+        console.log("حدث خطأ أثناء الحصول على البيانات!");
+      }
+    })
+    .catch((error) => {
+      // حدث خطأ أثناء الاتصال بالخادم
+      console.log(`حدث خطأ أثناء الاتصال بالخادم: ${error}`);
+    });
 };
 
 downloadthumBtn.addEventListener("click", () => {
