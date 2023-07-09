@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:image" content="imgs/preview.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Youtube Video Downloader</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="warrper">
+        <header>
+          <h1>Youtube Video Downloader</h1>
+          <p>
+            You Can Download Any Video From Youtube With One Click On This
+            Button
+          </p>
+        </header>
+        <input class="url-input" type="text" placeholder="URL" required />
+        <div class="btns">
+          <button class="download-video">
+            Download Video<i class="uil uil-video"></i>
+          </button>
+          <button class="download-thumbnail">
+            Download Thumbnail<i class="uil uil-image"></i>
+          </button>
+        </div>
+      </div>
+      <div class="img-cont">
+        <div class="img-container">
+          <img src="" alt="" />
+          <div class="preview" onclick="preview('1')">
+            <i class="uil uil-eye"></i>
+          </div>
+          <div class="dimension">320X180</div>
+        </div>
+        <div class="img-container">
+          <img src="" alt="" />
+          <div class="preview" onclick="preview('2')">
+            <i class="uil uil-eye"></i>
+          </div>
+          <div class="dimension">480X360</div>
+        </div>
+        <div class="img-container">
+          <img src="" alt="" />
+          <div class="preview" onclick="preview('3')">
+            <i class="uil uil-eye"></i>
+          </div>
+          <div class="dimension">640X480</div>
+        </div>
+        <div class="img-container">
+          <img src="" alt="" />
+          <div class="preview" onclick="preview('4')">
+            <i class="uil uil-eye"></i>
+          </div>
+          <div class="dimension">1280X720</div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
+<!-- style="left: 65%; top: 40%"
+style="left: 32%; top: 40%"
+style="left: 32%; top: 64%"
+style="left: 65%; top: 64%" -->
